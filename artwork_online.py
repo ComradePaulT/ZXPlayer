@@ -1,3 +1,4 @@
+# SPDX-License-Identifier: GPL-3.0-or-later
 """On-demand image downloads from ZXDB catalogue links; never downloads game data."""
 import hashlib
 import json

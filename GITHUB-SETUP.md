@@ -25,10 +25,15 @@ Copy changed program files into this same Windows folder. GitHub Desktop lists
 them under **Changes**. Review the list, type a short summary, click
 **Commit to main**, then click **Push origin**.
 
+For an existing private repository, copy the updated files from this package
+over the matching files in the local folder shown by GitHub Desktop. Do not
+delete the local `.git` folder. Review the changes, commit them with a summary
+such as `Add licences and community notices`, then click **Push origin**.
+
 ## Before making it public
 
 - Keep cassette files and downloaded artwork out of the repository.
-- Add a project-wide `LICENSE` after choosing how other people may use the code.
+- Confirm that `LICENSE` and `THIRD-PARTY-NOTICES.md` appear on GitHub.
 - Check that the README accurately describes the current release.
 - Consider using GitHub Releases for downloadable ZIP packages rather than
   adding each generated ZIP to the source repository.

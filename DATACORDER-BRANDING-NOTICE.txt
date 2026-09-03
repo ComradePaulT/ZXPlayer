@@ -9,5 +9,7 @@ Sources:
 https://commons.wikimedia.org/wiki/File:Sinclair.svg
 https://commons.wikimedia.org/wiki/File:Sinclair_ZX_Spectrum-02b.svg
 
-The graphics are included only to reproduce the appearance of the historic
-ZX Spectrum +2A Datacorder fascia in this personal, non-commercial player.
+The graphics are included to reproduce the appearance of the historic
+ZX Spectrum +2A Datacorder fascia. ZXPlayer is an independent community
+project and is not affiliated with or endorsed by the respective rights
+holders.

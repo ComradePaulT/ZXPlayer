@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+# SPDX-License-Identifier: GPL-3.0-or-later
 """ZXPlayer: 800 x 480 touch cassette deck. Run --help for options."""
 from __future__ import annotations
 

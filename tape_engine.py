@@ -1,3 +1,4 @@
+# SPDX-License-Identifier: GPL-3.0-or-later
 """Tape decoding and sample-clocked ALSA playback for ZX Player.
 
 The libspectrum public API supplies pulses, block boundaries and stop markers.

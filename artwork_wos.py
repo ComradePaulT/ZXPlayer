@@ -1,3 +1,4 @@
+# SPDX-License-Identifier: GPL-3.0-or-later
 """Live WOS Infoseek searches using its documented software/versions API."""
 import json
 import os

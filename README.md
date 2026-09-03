@@ -79,7 +79,19 @@ right to redistribute them.
 ZX Spectrum Strict is distributed with its own GPL-3.0 notice and licence.
 The fascia wordmarks have a separate notice in `DATACORDER-BRANDING-NOTICE.txt`.
 
-No project-wide source-code licence has been selected yet. Add a `LICENSE` file
-before inviting others to copy, modify or redistribute the application.
+## Licence
+
+ZXPlayer source code is copyright 2026 ZXPlayer contributors and is free
+software licensed under the GNU General Public License, version 3 or (at your
+option) any later version (`GPL-3.0-or-later`). See `LICENSE`.
+
+Bundled data, fonts and branding assets retain their respective licences and
+notices. See `THIRD-PARTY-NOTICES.md`, `ZXDB-NOTICE.txt`,
+`ZX-FONT-LICENSE.txt` and `DATACORDER-BRANDING-NOTICE.txt`.
+
+ZXPlayer is an independent community project. It is not affiliated with or
+endorsed by Sinclair, World of Spectrum, Spectrum Computing, or the respective
+rights holders. ZX Spectrum, Sinclair, and related names and marks remain the
+property of their respective owners.
 
 More operating details are in `START-HERE.txt`.

@@ -1,3 +1,4 @@
+# SPDX-License-Identifier: GPL-3.0-or-later
 """Download publisher logos from the documented World of Spectrum API."""
 from difflib import SequenceMatcher
 import json
