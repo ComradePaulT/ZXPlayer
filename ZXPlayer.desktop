@@ -1,0 +1,12 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=ZXPlayer
+Comment=ZX Spectrum cassette player
+Exec=/usr/bin/python3 /home/drbollox/zxplayer/player.py
+Path=/home/drbollox/zxplayer
+Icon=/home/drbollox/zxplayer/zxplayer-icon.png
+Terminal=false
+StartupNotify=false
+Categories=Game;AudioVideo;Player;
+Keywords=ZX Spectrum;Cassette;Tape;

@@ -1,0 +1,18 @@
+The artwork_catalog.json database is derived from ZXDB:
+https://github.com/zxdb/ZXDB
+
+ZXDB was created and is maintained by Einar Saukas and contributors.
+Source snapshot obtained 3 September 2026 from ZXDB_mysql.sql.zip.
+
+This derived catalogue is made available under the Open Database License
+(ODbL) 1.0:
+https://opendatacommons.org/licenses/odbl/1-0/
+
+The full derived database is supplied as the editable artwork_catalog.json.
+It selects ZX Spectrum-related titles and aliases from the source snapshot,
+plus front-inlay and media-scan links with release sequence,
+language and checksum metadata. It contains no image files or game data.
+
+Image links use Spectrum Computing and the original World of Spectrum
+Internet Archive mirror documented by ZXDB. The database licence does not
+grant rights to the separate images; those remain with their rights holders.

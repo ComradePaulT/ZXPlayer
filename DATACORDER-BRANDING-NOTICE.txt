@@ -1,0 +1,13 @@
+DATACORDER FASCIA WORDMARKS
+
+The Sinclair and ZX Spectrum wordmarks included with ZXPlayer were derived
+from the corresponding vector logos on Wikimedia Commons. Their file pages
+identify them as public-domain text logos made from simple geometric shapes.
+The names and marks may remain trademarks of their respective owners.
+
+Sources:
+https://commons.wikimedia.org/wiki/File:Sinclair.svg
+https://commons.wikimedia.org/wiki/File:Sinclair_ZX_Spectrum-02b.svg
+
+The graphics are included only to reproduce the appearance of the historic
+ZX Spectrum +2A Datacorder fascia in this personal, non-commercial player.

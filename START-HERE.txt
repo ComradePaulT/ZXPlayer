@@ -1,0 +1,269 @@
+ZXPlayer — TOUCH EDITION 0.9
+Raspberry Pi 4 / Raspberry Pi OS Trixie / 800 x 480
+
+UPGRADING AN EXISTING TOUCH INSTALLATION
+
+Close the player. Copy these FOUR files from this package into the same
+folder as your existing player.py on the Pi (normally /home/drbollox/zxplayer):
+  player.py                 replace the existing file
+  artwork_online.py         replace or add
+  artwork_wos.py            new file
+  artwork_catalog.json      new file
+Keep your working tape_engine.py, settings.json, tapes, images and cache.
+Copy ZXDB-NOTICE.txt alongside them for the catalogue attribution. Copy
+zxSpectrumStrict.ttf and its two ZX-FONT text files beside player.py to use
+the bundled Spectrum font. Copy sinclair-wordmark.png and
+zx-spectrum-wordmark.png beside player.py for the authentic Datacorder fascia.
+
+Start the player from the Pi desktop terminal:
+  python3 ~/zxplayer/player.py
+
+Your existing setup needs no extra packages for this update.
+
+FRESH INSTALL ONLY
+
+Install dependencies:
+  sudo apt update
+  sudo apt install python3-pygame python3-numpy fuse-emulator-utils
+
+Copy player.py, tape_engine.py, artwork_online.py, artwork_wos.py, artwork_catalog.json and
+ZXDB-NOTICE.txt into ~/zxplayer. Put tapes under ~/zxplayer/tapes and artwork
+under ~/zxplayer/images/box and ~/zxplayer/images/tape.
+All Python files must remain together.
+If you use a separate program folder, specify your collection root:
+  python3 ~/zxplayer/touch/player.py --root ~/zxplayer
+
+FIRST RUN
+
+Touch a cover to prepare a tape. The first opening builds audio and a block
+index in cache; later openings reuse it. This can take a while on large tapes.
+You can cancel preparation. Once ready, press Play when the Spectrum is ready.
+The app never starts a newly selected tape automatically.
+
+Output defaults to the Pi headphone jack by name, not card number.
+The software level starts at 100%; your existing hardware volume is not changed.
+Keep the hardware level that worked during your earlier loading test.
+The on-screen level is an extra digital attenuation control, not a calibrated
+voltage reading. It is saved for the next run.
+
+LIBRARY LABELS
+
+Library captions show the title and available [48-128K], [Side A] or
+[Part 1 of 4] tags. Files are not renamed. The playback screen retains the
+full filename. Long captions wrap and then shorten to fit the card.
+
+LIBRARY FOLDERS
+
+The Library opens with virtual folders. Tap A-Z to group by title, or tap
+Publisher to group by the publisher found in the tape filename. Tap a folder
+to see its games and tap Folders to return. Numeric titles are under 0-9;
+titles beginning The, A or An are sorted by the next word. Files remain in
+their existing folders, so artwork, favourites and cached audio keep working.
+
+Publisher folders display matching company logos from images/publishers. Name
+an image after the publisher shown in ZXPlayer, for example Ocean.png or
+Gremlin Graphics.png. PNG, JPG, JPEG, WEBP, BMP and GIF are supported. Matching
+ignores punctuation and common endings such as Software, Games and Ltd. See
+images/publishers/README.txt for examples.
+
+Tap Get logos on the Publisher folder screen to fetch missing company logos
+from the documented World of Spectrum Publishers API. Existing local logos are
+kept. The process can take a few minutes for a large collection and can be
+cancelled. Its summary is also saved in cache/publisher-logo-report.json.
+
+APPEARANCE
+
+ZXPlayer uses the Spectrum theme throughout. On the playback screen, tap
++2A view to show the live cassette behind a +2A-inspired Datacorder window.
+Tap Cassette view to return. The choice is saved and does not change audio
+or Spectrum model settings. Tap the window to align a photographed cassette.
+The included ZX Spectrum Strict font is loaded from zxSpectrumStrict.ttf
+beside player.py. It is used for headings and controls. Filenames, publisher
+names, counts and status text use a complete, readable font so every character
+and number displays correctly. The app also works if the font file is absent.
+
+PLAYER CONTROLS
+
+Play/Pause: Datacorder-style play and pause keys at the current position.
+Previous Block: the rewind-style key restarts this block; press again near its
+beginning to go back.
+Next Block: the fast-forward-style key moves to the next indexed block.
+Block navigation lands paused. Press Play when ready.
+Stop: pause and rewind to the beginning of the tape.
+Blocks: list and select block positions.
+Library: browse while playback continues; selecting another tape pauses it.
+Fav: save or remove this tape from favourites.
+Art: open a larger view of the cover.
+Set: audio output, Spectrum model, controller help.
+Library > Exit: close the player without shutting down the Pi.
+
+Automatic tape stop markers pause playback until you press Play.
+Choose 48K or 128K in Settings to control 48K-only stop markers.
+Finite tape loops and jumps follow libspectrum's execution order. Repeated
+blocks appear as separate entries in the playback timeline.
+Do not pause or jump midway through a data block and expect every loader to
+recover. If loading fails, restart the block or the game as appropriate.
+
+COVER ART
+
+For a tape named:
+  /home/drbollox/zxplayer/tapes/Manic Miner.tzx
+
+Add:
+  /home/drbollox/zxplayer/images/box/Manic Miner.jpg
+
+Images directly in images/ are still supported as a fallback, but images/box
+takes priority. The library selection screen and larger Art view use box art.
+
+CASSETTE ART
+
+For the same tape, add your cassette photograph or scan as:
+  /home/drbollox/zxplayer/images/tape/Manic Miner.png
+
+The large cassette on the playback screen will use this image. A folder
+named images/tapes is also accepted. images/tape/default.png can supply
+one shared cassette design for games without their own cassette artwork.
+If no cassette image is available, the built-in animated cassette is used.
+
+To animate a photograph, tap the large cassette on the playback screen:
+1. Tap the exact centre of the left spindle.
+2. Tap the exact centre of the right spindle.
+3. Watch the moving preview. Adjust Hub size with +/- so each circle
+   includes every spindle tooth, keeping the outer cassette body outside.
+4. Tap Save, then Play.
+
+The application rotates circular crops of the actual image, keeping the
+label and cassette body still. Until you align it, the image stays static.
+Alignment is saved per artwork filename in settings.json. Tap the cassette
+again to redo it. Alignment pauses playback; press Play afterwards.
+If you replace an image with a differently cropped version, realign it.
+
+ARTWORK FILENAMES
+
+PNG, JPG, JPEG, BMP, WEBP and GIF images are recognised; GIF uses its first
+frame. Matching ignores filename case, punctuation, collection metadata,
+UUID duplicate identifiers and scan numbers such as -01 and -02. Game sequel
+numbers are retained. Exact filenames take priority, then title matches.
+Different release groups are left for you to choose when the match is unclear.
+No renaming is needed. Tap Refresh after copying images to the Pi.
+
+Example:
+  tapes/Robocop (1988)(Ocean)(Side A)[48-128K].tzx
+can now use:
+  images/box/RoboCop-02.jpg
+
+For another scan, tap Art > Choose box (or Choose tape) > Use this.
+The choice is saved for that tape in settings.json. Use automatic clears it.
+When an image is chosen by filename, its scan number does not tell us whether
+it is an original edition. Original-release priority below applies to online
+downloads, where catalogue release information is available.
+
+DOWNLOAD ARTWORK
+
+For live World of Spectrum Infoseek, use Search title > Search WOS.
+See WOS-UPDATE.txt for WOS-specific release handling and API settings.
+The instructions below describe the existing ZXDB catalogue provider.
+
+Open a tape, then Art > Choose box (or Choose tape) > Find online.
+An internet connection is required. The player looks up the title in the
+included ZXDB catalogue, tries the original release first, and falls back to
+other available releases if the original image cannot be fetched. It tells
+you which release was used. Ambiguous games are not downloaded automatically.
+Find online can also be used to replace the displayed choice for a game
+which already has local artwork. Existing image files are preserved.
+
+Images are fetched from Spectrum Computing or the documented Internet Archive
+mirror of the original World of Spectrum archive. This is not a live
+worldofspectrum.org API connection. Only image files are fetched, on request;
+there is no bulk background download. Cancel stops a pending request.
+
+Downloads are cached under images/box/downloaded or images/tape/downloaded,
+with source details in an adjacent JSON file. Your choice is stored in
+settings.json. Keep these files when moving the collection.
+
+TYPED SEARCH: Art > Choose box or Choose tape > Search title.
+Edit the title with the touch keyboard or a physical keyboard and press Search.
+Results include local images and matching archive titles/aliases. Tap Use for
+a local image or Download for an archive result. The choice is attached to the
+selected tape even if the tape filename is wrong; no renaming is required.
+Explicit archive matches are saved and reused for the other artwork category.
+Use Search title again to correct one. Search itself works offline.
+
+The included catalogue now contains 34,609 Spectrum-related entries from the
+3 September 2026 ZXDB snapshot. Only results with the requested artwork type
+appear. New archive additions need a newer catalogue; this is not a live web
+title search. Availability and release metadata vary.
+Media scans can include non-cassette media for some releases; inspect the
+result before aligning hubs. No copyrighted game or cover images are bundled.
+See ARTWORK-REPORT.txt for local images which could not be matched confidently.
+
+GAMEPAD
+
+Plug in a USB controller, or pair a Bluetooth controller in Raspberry Pi OS.
+The app detects connection/disconnection while running.
+
+Default common joystick mapping (zero-based button numbers):
+  D-pad / hat: move focus through controls
+  A (0): select highlighted control
+  B (1): back
+  X (2): lower level
+  Y (3): raise level
+  LB (4): previous block
+  RB (5): next block
+  Start (7): Play/Pause
+
+Controller button layouts vary. To change yours, close the app and add a
+"gamepad" object to ~/zxplayer/settings.json, preserving its other fields:
+
+  "gamepad": {
+    "select": 0, "back": 1, "volume_down": 2, "volume_up": 3,
+    "previous": 4, "next": 5, "play": 7
+  }
+
+The first version expects the D-pad to be exposed as a joystick hat.
+Keyboard controls: Space play/pause, Left/Right blocks, +/- level,
+Tab/Enter focus/select, Esc back, Q close prompt, F11 fullscreen.
+The search screen has its own touch keyboard; Raspberry Pi's pop-up keyboard
+can stay disabled.
+
+FORMATS AND LIMITS
+
+TAP, TZX, PZX, CSW, SPC, STA and LTP use the installed libspectrum decoder.
+Compatibility depends on that version, including CSW version support.
+This is broad format support, not a promise that every tape file will load.
+Interactive TZX selection/call blocks are not supported; detected selection
+blocks produce an explicit error rather than silently choosing a branch.
+Unsupported or damaged files produce a message and do not play partial audio.
+
+PCM WAV supports 8/16/24/32-bit samples at 8–192 kHz. Stereo recordings use
+the left channel to avoid phase cancellation. Compressed/float WAV is not
+supported. WAV has no native tape block index: use Bookmarks > Mark current
+position to create your own skip points. CSW/pulse recordings may also contain
+only one indexable block. No speculative silence-based blocks are created.
+
+Tape images are limited to 128 MB and rendered playback to two hours. Very
+long or endless tape programs are rejected. Each hour of normal cached audio
+uses about 303 MiB. Cache uses hashed names to avoid different tapes colliding.
+Older WAV caches from the command-line player are left untouched.
+
+The audio worker streams PCM through ALSA independently of the UI. Pause
+discards queued output and resumes from the estimated hardware playback frame.
+On an audio underrun it stops with an error instead of silently losing pulses.
+The estimated pause position can differ slightly with some audio drivers.
+
+VALIDATION
+
+This edition was tested locally for rendering, controls, pulse timing, cache
+invalidation, PCM WAV handling, and transport state using a simulated audio
+device. The exact native ALSA/libspectrum combination on your Pi and physical
+gamepad still need testing. Your previous command-line audio test established
+the cable/output route, not this new renderer's loading compatibility.
+
+If a tape fails in this edition, try your original player and retain both
+results, the tape filename, and the error text for troubleshooting.
+
+Sources for the APIs used:
+  https://fuse-emulator.sourceforge.net/libspectrum.php
+  https://sources.debian.org/src/libspectrum/1.4.4-1/libspectrum.h.in/
+  https://www.alsa-project.org/alsa-doc/alsa-lib/group___p_c_m.html
+  https://www.pygame.org/docs/

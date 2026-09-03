@@ -1,0 +1,34 @@
+# Python and local runtime files
+__pycache__/
+*.py[cod]
+cache/
+settings.json
+*.log
+*.part
+
+# Personal tape collection
+tapes/*
+!tapes/.gitkeep
+*.tap
+*.tzx
+*.pzx
+*.csw
+*.spc
+*.sta
+*.ltp
+*.wav
+
+# Downloaded or locally supplied artwork
+images/box/*
+!images/box/.gitkeep
+images/tape/*
+!images/tape/.gitkeep
+images/tapes/*
+images/publishers/*
+!images/publishers/README.txt
+
+# Desktop/editor debris
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
